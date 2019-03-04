@@ -10,6 +10,7 @@ The good:
 The bad:
 - it isn't actually a separate type from `std::vector<Pose>`, it is more like a `#define`
 - this means some code might still use `std::vector<Pose>` and it isn't obvious that it means the same thing
+- also means that you can't forward declare the name (ie `class PoseLayout;` doesn't work)
 - it hides information, but doesn't really
 - it requires a reviewer to look up PoseLayout, which would be true even if it was a class, but what did the lookup buy in this case?
 - it exposes ALL functions of the underlying type.  For example, did you want `.reserve(10)` to be part of a layout?
@@ -26,6 +27,7 @@ Better:
     
 - makes a real type
 - a place to deliniating what a PoseLayout does and doesn't do
+- you can change things. ie as it turns out, `std::map<ChannelId, PlanarViewport>` was better than a vector with the `ChannelId` inside each `Pose`
 
 Another example:
 
@@ -38,6 +40,7 @@ Do you want FooHandles to be subtracted from each other?
     using ChannelId = StrongId<std::string, struct ChannelTag>;
 
 - a ChannelId really is just a StrongId over a string, unique across Channels.  No more, no less.
+- (you still can't forward declare it, unfortunately)
 
 
 ### Naming is hard
