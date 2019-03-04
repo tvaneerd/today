@@ -43,6 +43,11 @@ Do you want FooHandles to be subtracted from each other?
 - (you still can't forward declare it, unfortunately)
 
 
+---
+
+Bonus! Naming also came up:
+
+
 ### Naming is hard
 
 "Extent" can mean many things.  Once we use it, it can only mean one thing.
