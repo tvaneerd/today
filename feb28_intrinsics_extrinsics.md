@@ -5,7 +5,7 @@ Most people make a rectangle something like this:
         int x, y, w, h;
     };
 
-In math we learned that a rectangle has just a width and a height. Being a square-cornered quadrilateral with a width and height is what makes a rectangle a rectangle. Two rectangles with the same width and height are the same.
+In math we learned that a rectangle has just a width and a height. Being a square-cornered quadrilateral with a width and height is what makes a rectangle a rectangle. Two rectangles with the same width and same height are the same.
 
 _So what's up with x and y?_
 
