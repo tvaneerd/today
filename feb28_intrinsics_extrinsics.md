@@ -69,3 +69,8 @@ Take away:
 **Keep an eye out for _extrinsics_ in your data structures.  They can reveal hidden relationships,
 possibly leading to a better understanding of your overall code structure, possibly revealing a better structure to use going forward.**
 
+
+---
+
+*When I say "list", I mean vector.
+
