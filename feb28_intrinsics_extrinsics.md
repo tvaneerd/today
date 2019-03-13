@@ -43,6 +43,7 @@ Not only is the channel bounds relative to a layout, but `ChannelId` is also rel
 `ChannelId` suggests a few things
 - that there is a map somewhere that returns a channel given an id
 - that there are further relationships afoot - other objects that store the id and are somehow 'linked' to the channel
+- IDs are basically pointers, and can dangle, etc
 - that channel is an _object_, not a _value_. >dun-dun<
 
 
