@@ -4,7 +4,7 @@ it probably needs to communicate this disappointment to someone(s).  Who is the 
 F - the developer that wrote the Function (ie "whoops! this should never happen, but it did - internal state error")  
 D - the Developer that called the function (ie "you passed null, but I told you never to do that")  
 C - the Code that Called the function (ie "sorry the file cannot be found")  
-U - the user (msg box etc)  
+U - the User (msg box etc)  
 
 (I'll let readers reorder those and form their own acronym)
 
