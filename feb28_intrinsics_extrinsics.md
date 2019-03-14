@@ -53,10 +53,10 @@ Not only is the channel bounds relative to a layout, but `ChannelId` is also rel
 There is no right answer here, accept to keep an eye out for extrinsics in your data types.
 They are often better held by the object that owns the relationship. 
 
-ie the channel list can hold the channels with the IDs "beside" the channels.
+ie the channel list<sup id="a1">[1](#f1)</sup> can hold the channels with the IDs "beside" the channels.
 
 A `Layout` might hold the positions of the `Shapes`.
-OK it might still be a list* of objects with position and other info together in each item,
+OK it might still be a list<sup id="a1">[1](#f1)</sup> of objects with position and other info together in each item,
 but `Item` could hold position and 'object intrinsics' as separate fields.
 
 Isn't that the same end result as putting position inside the object?
@@ -75,5 +75,5 @@ possibly leading to a better understanding of your overall code structure, possi
 
 ---
 
-*When I say "list", I mean vector.
+<b id="f1">1</b>  When I say "list", I mean vector.
 
