@@ -1,3 +1,5 @@
+_I think Sean Parent was the first to introduce me to intrinsics vs extrinsics, and the Rectangle example is his (IIRC!)_
+
 Most people make a rectangle something like this:
 
     struct Rect
@@ -5,7 +7,7 @@ Most people make a rectangle something like this:
         int x, y, w, h;
     };
 
-In math we learned that a rectangle has just a width and a height. Being a square-cornered quadrilateral with a width and height is what makes a rectangle a rectangle. Two rectangles with the same width and same height are the same.
+In math we learned that a rectangle has just a width and a height. Being a square-cornered quadrilateral with a width and height is what makes a rectangle a rectangle. Two rectangles that have the same width and the same height are the same.
 
 _So what's up with x and y?_
 
@@ -22,7 +24,7 @@ x and y are the _position_ of the rectangle.
 OK, so that probably isn't revolutionary. 
 
 But here's the thing: the position of the rectangle is not an *intrinsic* property of the rectangle.
-It is an *extrinsic* property. In fact it is a relation between the rectangle and the rest of a layout.
+It is an *extrinsic* property. In fact it is a relation between the rectangle and a coordinate space or other objects or a layout.
 It doesn't belong as part of (just) the rectangle. 
 
 So big deal? Maybe. Sometimes. 
@@ -36,7 +38,7 @@ Similarly,
     class Channel
     {
        ChannelId id;
-       RectRegion destination;
+       RectRegion buonds;
        ProjectorStuff projector;
        Etc etc;
     };
@@ -70,7 +72,7 @@ Instead it can be outside the polymorphic part. Possibly good, possibly not.
 Take away:
 
 **Keep an eye out for _extrinsics_ in your data structures.  They can reveal hidden relationships,
-possibly leading to a better understanding of your overall code structure, possibly revealing a better structure to use going forward.**
+possibly leading to a better understanding of your overall code structure and relationships, possibly revealing better data structures to use going forward.**
 
 
 ---
