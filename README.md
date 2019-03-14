@@ -1,5 +1,8 @@
 # today
-Today at work we talked about...
+
+_Today at work we talked about..._
+
+  
 
 It is hard to describe coding design and strategy without context.  You end up with fake examples.
 
