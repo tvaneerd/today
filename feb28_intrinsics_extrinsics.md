@@ -75,5 +75,5 @@ possibly leading to a better understanding of your overall code structure, possi
 
 ---
 
-<b id="f1">1</b>  When I say "list", I mean vector.
+<b id="f1">1.</b>  When I say "list", I mean vector.
 
