@@ -44,7 +44,7 @@ Do you want FooHandles to be subtracted from each other?
 - (you still can't forward declare it, unfortunately)
 - they are necessary:
 
-    enable_if<condition, int, double>::type // that's a typedef
+    `enable_if<condition, int, double>::type // that's a typedef`
 
 ---
 
