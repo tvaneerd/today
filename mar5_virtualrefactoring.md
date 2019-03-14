@@ -18,6 +18,13 @@ Subroutines
 
 <pre lang="cpp">
 
+
+
+
+
+
+
+
 int D1::f()
 {
     common...;
@@ -45,11 +52,15 @@ int Base::f()
 }
 int D1::vf() override
 {
+
     specialized...;
+    
 }
 int D2::vf() override
 {
+
     different...;
+    
 }
 
 </pre>
@@ -57,6 +68,13 @@ int D2::vf() override
 <td  valign="top">
 
 <pre lang="cpp">
+
+
+
+
+
+
+
 
 int D1::f()
 {
