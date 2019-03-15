@@ -25,6 +25,9 @@ Subroutines
 
 
 
+
+
+
 int D1::f()
 {
     common...;
@@ -50,6 +53,9 @@ int Base::f()
     vf();
     same...;
 }
+
+
+
 int D1::vf() override
 {
 
