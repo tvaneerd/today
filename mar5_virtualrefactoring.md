@@ -69,12 +69,14 @@ int D2::vf() override
 
 <pre lang="cpp">
 
-
-
-
-
-
-
+void common()
+{
+    common...
+}
+void same()
+{
+    same...
+}
 
 int D1::f()
 {
