@@ -84,7 +84,7 @@ public:
     }
     
 private:
-    void onResize() { }
+    virtual void onResize() { }
 };
 
 class Derived : public Base
