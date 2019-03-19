@@ -108,4 +108,6 @@ class Derived : public Base
 Clients should not call `onResize()`, therefore it can be, and should be, private
 (or maybe protected, but protected is often a code smell as well, ... but that's another story).
 
-From Herb Sutter's _Guru of the Week_ http://www.gotw.ca/publications/mill18.htm
+---
+
+This pattern (I wish it was popular enough to be a considered a pattern) is sometimes called the "Non-virtual idiom" and I learned it from Herb Sutter's _Guru of the Week_ http://www.gotw.ca/publications/mill18.htm
