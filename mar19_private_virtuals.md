@@ -110,4 +110,6 @@ Clients should not call `onResize()`, therefore it can be, and should be, privat
 
 ---
 
-This pattern (I wish it was popular enough to be a considered a pattern) is sometimes called the "Non-virtual idiom" and I learned it from Herb Sutter's _Guru of the Week_ http://www.gotw.ca/publications/mill18.htm
+This pattern is sometimes called the "Non-virtual idiom" and I learned it from Herb Sutter's _Guru of the Week_ http://www.gotw.ca/publications/mill18.htm
+
+I guess the original pattern is Template Method Pattern https://en.wikipedia.org/wiki/Template_method_pattern (note the "template" in the name does not refer to C++ templates).  Although most other languages don't allow overriding private functions, so I find there is extra control/strictness in C++'s version.
