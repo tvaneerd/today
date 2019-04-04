@@ -1,4 +1,4 @@
-"Why don't std functions take lambdas instead of output iterators?" - famous C++ person  
+"Why don't std functions take lambdas instead of output iterators?" - famous C++ person during internet conversation  
 "I have to write this instead:" 
 
     struct HitEstimatorReference {
