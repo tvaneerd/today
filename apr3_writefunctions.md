@@ -25,7 +25,7 @@ Or write an adapter that converts any callable into a back-inserter:
 That would probably prove useful all over the place!
 
 
-Similarly **today at work,** within 15 minutes of the above discussion, someone said:
+Similarly **today at work,** _within 10 minutes of the above discussion_, someone said:
 
 "This task would be a lot easier if `ChannelManager` had a way to..."
 
