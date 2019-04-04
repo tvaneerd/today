@@ -22,7 +22,7 @@ Or write an adapter that converts any callable into a back-inserter:
 
     std::sample(data.begin(), data.end(), magic_adapter([t](Value v){t->Add(v);}));
     
-That would probably prove useful all over the place!
+That would probably prove useful all over the place! (Just give it a better name)
 
 
 Similarly **today at work,** _within 10 minutes of the above discussion_, someone said:
