@@ -51,3 +51,7 @@ in whatever place results in the smallest code change (ie a single additional if
 So 50% of the time code is in the wrong place here, 50% code is in the wrong place there;
 that adds to 100% of the code is in the wrong place, which seems only a slight exaggeration in my experience.
 
+---
+
+P.S. For an interesting experiment with using callables instead of iterators, see https://godbolt.org/z/in9CHa and look at the assembly differences between lambdas and iterators.
+
