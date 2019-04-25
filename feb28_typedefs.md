@@ -44,9 +44,10 @@ Do you want FooHandles to be subtracted from each other?
 
 - a ChannelId really is just a StrongId over a string, unique across Channels.  No more, no less.
 - (you still can't forward declare it, unfortunately)
-- they are necessary:
+- they are necessary, a form of interface-by-name:
 
-    `enable_if<condition, int, double>::type // that's a typedef`
+    `enable_if<condition, int, double>::type // that's a typedef`  
+    `std::vector<int>::iterator  // maybe a typedef`
 
 ---
 
