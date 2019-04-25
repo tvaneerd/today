@@ -6,10 +6,12 @@ The good:
 - giving a concept/idea a name in the code - a PoseLayout is a layout of Poses.
 - that raises the level of abstraction
 - it is one step towards a type - ie maybe later PoseLayout becomes a class, as needed
+- allows you to change it later (sort of). ie switch to `std::deque` or something
 
 The bad:
 - it isn't actually a separate type from `std::vector<Pose>`, it is more like a `#define`
 - this means some code might still use `std::vector<Pose>` and it isn't obvious that it means the same thing
+- and this means you can't actually change it later without headaches
 - also means that you can't forward declare the name (ie `class PoseLayout;` doesn't work)
 - it hides information, but doesn't really
 - it requires a reviewer to look up PoseLayout, which would be true even if it was a class, but what did the lookup buy in this case?
