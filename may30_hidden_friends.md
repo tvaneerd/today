@@ -1,9 +1,15 @@
 ## Hidden Friend Functions
 
+### TL;DR
+
+_Hidden friend functions are current best practice for defining operators on your classes._
+
+---- 
+
 CPPIBAA - C++ Is Bad At Abbreviations  
 CPPIBAN - C++ Is Bad At Naming
 
-Note: The "hidden" in _hidden friend functions_ has little/nothing to do with _data hiding_ using private member variables.
+Note: the "hidden" in _hidden friend functions_ has little/nothing to do with _data hiding_ using private member variables.
 Just like C++ overuses keywords (like `static`) to mean different things, it also overuses terminology to mean different things.
 
 ### So What _are_ hidden friend functions
