@@ -16,31 +16,84 @@ Just like C++ overuses keywords (like `static`) to mean different things, it als
 
 Hidden friend functions are friend functions that are _defined_ (not just declared) inside the class:
 
-    namespace N
+
+<table>
+<tr>
+<th>
+Hidden
+</th>
+<th>
+Not Hidden
+</th>
+</tr>
+<tr>
+<td  valign="top">
+
+<pre lang="cpp">
+
+namespace N
+{
+
+class C
+{
+    int x;
+    int y;
+        
+public:
+    // this is a hidden friend function
+    friend operator<(C const & a, C const & b)
     {
-       class C
-       {
-           int x;
-           int y;
-        
-       public:
-           // this is a hidden friend function
-           friend operator<(C const & a, C const & b)
-           {
-               return std::tie(a.x, a.y) < std::tie(b.x, b.y);
-           }
-        
-           // this is NOT a hidden friend function
-           friend operator>(C const & a, C const & b);
-       };
+        return std::tie(a.x, a.y)
+            < std::tie(b.x, b.y);
+    }
+};
+
+
+
+
+
+
+
+
+} // namespace N
     
-       // definition outside class makes it not hidden
-       inline C::operator>(C Const & a, C const & b)
-       {
-           return std::tie(a.x, a.y) > std::tie(b.x, b.y);
-       }
-    } // namespace N
+</pre>
+</td>
+<td  valign="top">
+
+<pre lang="cpp">
+
+namespace N
+{
+
+class C
+{
+    int x;
+    int y;
+        
+public:
+    // this is NOT a hidden friend function
+    friend operator<(C const & a, C const & b);
+
+
+
+
+};
     
+// definition outside class makes it not hidden
+inline C::operator<(C Const & a, C const & b)
+{
+   return std::tie(a.x, a.y)
+        < std::tie(b.x, b.y);
+}
+
+} // namespace N
+    
+</pre>
+</td>
+</tr>
+</table>
+
 OK, so now I know what a _hidden friend function_ is. But...
 
 ### What's the difference (relative to  non-hidden friend functions)?
