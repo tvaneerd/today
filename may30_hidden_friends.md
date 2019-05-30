@@ -63,3 +63,6 @@ This makes compile times faster, and makes compiler errors shorter (compilers of
 #### What about the cases where the hidden friends are _not_ found, but you wanted them to be found?
 
 No you didn't.
+
+C++ name lookup is the wild west.  Asking the compiler to "do the right thing" is great, until it isn't.
+Some day in the future it will pick the "wrong" candidate, and you will be left scratching your head.
