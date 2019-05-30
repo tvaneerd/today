@@ -66,3 +66,8 @@ No you didn't.
 
 C++ name lookup is the wild west.  Asking the compiler to "do the right thing" is great, until it isn't.
 Some day in the future it will pick the "wrong" candidate, and you will be left scratching your head.
+
+
+----
+
+See also, http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1601r0.pdf by Walter E. Brown and Daniel Sunderland
