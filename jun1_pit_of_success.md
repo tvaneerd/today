@@ -24,3 +24,14 @@ who owns the pointer?  Will it get deleted, or will it leak?
 You can still leak the Image, but it is annoying (although not impossible) to do so.
 
 TODO: more examples of good APIs
+
+
+---
+
+In fact, the definition of good code is code that encourages future code to be good - ie code that causes future code to fall into the pit of success.
+
+Good code:
+- works
+- influences future code to be good
+
+It is a recursive definition.  The more times you iterate over code and it continues to work, is a sign that the original code was good.  Bad code stops working (or increases in bugs) in less iterations.
