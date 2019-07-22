@@ -34,4 +34,4 @@
 
 Since most bugs are caused by state that has changed, `const` means
 
-_the bug is probably not here. Go look somewhere else._
+**_the bug is probably not here. Go look somewhere else._**
