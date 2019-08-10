@@ -1,4 +1,4 @@
-_I think Sean Parent was the first to introduce me to intrinsics vs extrinsics, and the Rectangle example is his (IIRC!)_
+_I think Sean Parent was the first to introduce me to the terms intrinsics and extrinsics (I had the notions, but it was still vague at the time), and the Rectangle example is his (IIRC!)_
 
 Most people make a rectangle something like this:
 
@@ -60,6 +60,15 @@ ie the channel list<sup id="a1">[1](#f1)</sup> can hold the channels with the ID
 A `Layout` might hold the positions of the `Shapes`.
 OK it might still be a list<sup id="a1">[1](#f1)</sup> of objects with position and other info together in each item,
 but `Item` could hold position and 'object intrinsics' as separate fields.
+
+    class Item
+    {
+        Shape shape; // intrinsics
+        // extrinsics
+        Position pos;
+        AlignmentRelationships alignment;
+        Etc etc;
+    };
 
 Isn't that the same end result as putting position inside the object?
 Well, like all things C++, _it depends_. Note that when you copy/paste an object in a layout program,
