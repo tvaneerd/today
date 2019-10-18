@@ -14,6 +14,6 @@ It didn't compile. But Master was gone.
 
 Almost every question can be and should be answered with a function call.
 
-When you have a question, call a funtion - then write the function.
+When you have a question, call a function - then write the function.
 
 
