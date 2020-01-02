@@ -1,17 +1,10 @@
-### When to use `std::move()`
+## When to use `std::move()`
+
+### When to use `std::move()` on _move-only_ types
 
 When it doesn't compile without it.
 
-.  
-.  
-.  
-.  
-
-OK, OK....
-
-#### More Info
-
-
+Say, `image` is a move-only image class:
 
 <table>
 <tr>
@@ -93,8 +86,18 @@ temporaries, _xvalues_, _prvalues_, blah blah blah.
 
 #### Basically...
 
-_Use `std::move()` when it doesn't compile without it._
+_Use `std::move()` on move-only types when it doesn't compile without it._
 
 Assume you don't need `std::move()`.  Just write like you were using an int.
 Add the `std::move()` when it doesn't compile, and _then_ look at what the compiler is trying to tell you,
-and whether that thing is OK to be moved (ie consider what what happens to the *moved-from* object afterward - is that OK?).
+and whether that thing is OK to be moved (ie consider what happens to the *moved-from* object afterward - is that OK?).
+
+## Yeah, but what about std::vector?
+
+What about types that are not move-only?
+
+Well, now that we have a feel for when you would use `std::move()` on move-only objects, apply that mostly to copyable objects.
+Use `std::move()` when you don't need the data over _here_ any more, and want it over _there_.  Same general rules:
+
+- consider what happens to the *moved-from* object afterward - is that OK?
+- when you return a local vector from a function, you don't need `std::move()` - the compiler will do a better job without it.
