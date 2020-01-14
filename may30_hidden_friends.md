@@ -56,7 +56,6 @@ public:
 
 
 } // namespace N
-    
 </pre>
 </td>
 <td  valign="top">
@@ -88,7 +87,6 @@ inline C::operator<(C Const & a, C const & b)
 }
 
 } // namespace N
-    
 </pre>
 </td>
 </tr>
