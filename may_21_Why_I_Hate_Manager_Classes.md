@@ -12,7 +12,7 @@ Therefore, hate them.
 Q.E.D.
 
 Oh, I may have skipped a step in my proof: **Single Responsibility Principle**.
-`DogManager` has two responsibilities (above), it should only have one.
+`DogManager` has two responsibilities (listed above), it should only have one.
 
 Which one?  Neither.
 
