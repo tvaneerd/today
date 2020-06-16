@@ -1,4 +1,4 @@
-"Why don't std functions take lambdas instead of output iterators?" - famous C++ person during internet conversation  
+"Why don't std functions take lambdas instead of output iterators?" - famous C++ person during internet conversation;  
 "I have to write this instead:" 
 
     struct HitEstimatorReference {
@@ -15,24 +15,63 @@
     
 **_Write the functions you want to see in the world._** - Tony
 
-Write `my_sample(beg, end, lambda)` that calls `std::sample` for you.
-(Or use https://github.com/tvaneerd/code/blob/master/sampling.h that takes a callable)
+What function did you **wish** the STL had? Something that could be called like:
 
-Or write an adapter that converts any callable into a back-inserter:
+    sample(data.begin(), data.end(), [this](Value val) mutable { Add(val); }, count, std::mt19937{std::random_device{}()});
 
-    std::sample(data.begin(), data.end(), magic_adapter([t](Value v){t->Add(v);}));
+Or maybe even
+
+    sample(data, [this] mutable { Add(value); });
     
-That would probably prove useful all over the place! (Just give it a better name)
+?
+
+If so, *then write that* helper function!
+
+    template<typename Iterator, typename Lambda, typename Distance, typename URNG>
+    void sample(Iterator beg, Iterator end, Lambda & lam, Distance count, URNG & urng)
+    {
+        struct Adapter
+        {
+            Lambda & lam;
+            template<typename T>
+            void push_back(T const & t) { lam(t); }
+        };
+        std::sample(beg, end, std::back_inserter(Adapter(lam)), count, urng);
+    }
+
+And/Or 
+
+    template<typename Container, typename Lambda>
+    void sample(Container const & data, Lambda & lam, int count)
+    {
+        sample(std::begin(cont), std::end(cont), lam, count, std::mt19937{std::random_device{}()});
+    }
+
+And/Or realize the real magic is in that Adapter that converts any callable into a back-inserter.
+Write a function `make_back_inserter()` that adapts a lambda into a back-inserter.
+Then the code you end up with is
+
+    sample(data.begin(), data.end(), make_back_inserter([this](Value v){Add(v);}));
+    
+That would probably prove useful all over the place!
+
+Note! The above implementations could make better use of forwarding references (ie `Lambda && lam`), but I left them out _on purpose_.
+1. To make the examples easier to read.
+2. _Because it's fine!_ It doesn't need to be perfect to be useful.  Someone else can always perfect it if they need it.
+
+
+(P.S. see also https://github.com/tvaneerd/code/blob/master/sampling.h for a `sample()` that takes a callable)
+
 
 
 Similarly **today at work,** _within 10 minutes of the above discussion_, someone said:
 
 "This task would be a lot easier if `ChannelManager` had a way to..."
 
-So look at `ChannelManager`.  Would that functionality *fit* within the responsibilities of `ChannelManager`,
-or are you asking it to do something that is only useful for your particular task, and shouldn't be part of `ChannelManager`?
+So look at `ChannelManager`.  Would that functionality *fit* within the responsibilities of `ChannelManager`?,
+or are you asking it to do something that is only useful for your particular task, and thus shouldn't be part of `ChannelManager`?
 
-Is there something not so specific to your task that would help?  Would `getChannelMap` (the essence of the thing needed) make your life easier,
+If it would be too specific, is there some appropriate _part_ that ChannelManager could do that would help?  Would `getChannelMap` (the essence of the thing needed) make your life easier,
 and also be a sensible thing for `ChannelManager` to do?
 
 If it fits, _just change ChannelManager_. It is that simple.
