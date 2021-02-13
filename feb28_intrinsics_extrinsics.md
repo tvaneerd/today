@@ -75,6 +75,8 @@ Well, like all things C++, _it depends_. Note that when you copy/paste an object
 you typically do _not_ want to copy the position (you give the new object a different position).
 Because it is not intrinsic. What else isn't?
 
+Imagine that Position might later become Transform - a translation + rotation, etc.  Maybe squishing/stretching/warping.  All extrinsic to the rectangle.
+
 Also, polymorphism - maybe position was buried deep in the base class `Shape`.
 Instead it can be outside the polymorphic part. Possibly good, possibly not.
 
