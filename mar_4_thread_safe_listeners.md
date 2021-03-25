@@ -69,7 +69,7 @@ So, listener->notify() becomes notify(listener) and doesn't actually call the li
 But if you don't have global queues, or similar, there is no escape.
 
 
-See also:
+### See also:
 
-I talk I did at C++Now/Boostcon, on this very problem: https://youtu.be/RVvVQpIy6zc
+A talk I did at C++Now/Boostcon, on this very problem: https://youtu.be/RVvVQpIy6zc
 
