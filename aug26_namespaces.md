@@ -46,6 +46,12 @@ void foo()
 }
 ```
 
+**So I need to type `std::` ALL. THE. TIME.???**
+
+Yes.  You'll get use to it.  Really.
+
+As I mentioned above, when trying to understand code, it really helps to know whether `find(a,b)` is `your::find(a,b)` or `std::find(a,b)`.
+
 ---
 
 "Never", "Definitely", "Always", etc are not true.  There are _always_ exceptions.
