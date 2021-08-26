@@ -52,6 +52,14 @@ Yes.  You'll get use to it.  Really.
 
 As I mentioned above, when trying to understand code, it really helps to know whether `find(a,b)` is `your::find(a,b)` or `std::find(a,b)`.
 
+
+**Company Name as namespace**
+
+
+I'd only use your company name as a namespace for things you were expecting to be used outside your company.  Internal to your company it is a bit redundant!
+
+And even then, although your company makes for a likely unique name, I'd instead pick a good name for your library and use that instead - company names (and/or code ownership) often changes faster than code does.
+
 ---
 
 "Never", "Definitely", "Always", etc are not true.  There are _always_ exceptions.
