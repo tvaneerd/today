@@ -125,6 +125,80 @@ C++ name lookup is the wild west.  Asking the compiler to "do the right thing" i
 Some day in the future it will pick the "wrong" candidate, and you will be left scratching your head.
 
 
-----
+#### P.S. Non-member Operators are Better than Member Operators except when they are not
 
+For binary operators, you have two choices:
+
+
+
+<table>
+<tr>
+<th>
+member
+</th>
+<th>
+Non-member
+</th>
+</tr>
+<tr>
+<td  valign="top">
+
+<pre lang="cpp">
+
+namespace N
+{
+
+class C
+{
+    int x;
+    int y;
+        
+public:
+    // this is a member operator
+    operator<(C const & b)
+    {
+        return std::tie(this->x, this->y)
+            < std::tie(b.x, b.y);
+    }
+};
+
+} // namespace N
+</pre>
+</td>
+<td  valign="top">
+
+<pre lang="cpp">
+
+namespace N
+{
+
+class C
+{
+    int x;
+    int y;
+        
+public:
+    // this is a non-member operator (whether friend or defined outside the class)
+    friend operator<(C const & a, C const & b)
+    {
+        return std::tie(a.x, a.y)
+            < std::tie(b.x, b.y);
+    }
+};
+
+} // namespace N
+</pre>
+</td>
+</tr>
+</table>
+
+Typically the non-member version is better - When using a member operator, a call like `d < c` only works when `d` has the operator.  With non-member, it also works when `d` and/or `c` has a conversion to something with the non-member operator.
+                                                                                              
+***But wait!***
+                                                                                              
+C++20 now has space-ship operator `<=>` and a new set of rules for the related operators.  For those, guess what!? - Member operator is what you want. The new "rewrite rules" make it work just as well or better.  Honestly, I forget why it is better now, but it is right in the paper on space-ship...
+    
+    
+----
+    
 See also, http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1601r0.pdf by Walter E. Brown and Daniel Sunderland
