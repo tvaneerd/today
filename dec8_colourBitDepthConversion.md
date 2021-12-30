@@ -29,6 +29,8 @@ y = x/255*65535
 = x<<8 | x
 ```
 
+IT IS NOT AN APPROXIMATION! IT IS EXACT!
+
 QED
 
 who knew difference of squares would come in handy
