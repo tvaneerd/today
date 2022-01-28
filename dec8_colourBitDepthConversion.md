@@ -127,7 +127,9 @@ It would be ideal if converting values back and forth between representations wo
 
 If `component16To8()` was to round, we would get `168`  --8To16-->  `(168<<8)|168`  --16To8-->  `169`. ie
 
-`assert(168 == 169);`
+`assert(168 == 169);`  Not good!
+
+It is better to not round when lowering bits.
 
 Similarly, for floating point we want:
 
