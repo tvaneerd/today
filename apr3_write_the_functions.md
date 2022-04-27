@@ -62,7 +62,7 @@ Note! The above implementations could make better use of forwarding references (
 
 (P.S. see also https://github.com/tvaneerd/code/blob/master/sampling.h for a `sample()` that takes a callable)
 
-
+### Example 2
 
 Similarly **today at work,** _within 10 minutes of the above discussion_, someone said:
 
@@ -75,6 +75,32 @@ If it would be too specific, is there some appropriate _part_ that ChannelManage
 and also be a sensible thing for `ChannelManager` to do?
 
 If it fits, _just change ChannelManager_. It is that simple.
+
+
+### Example 3
+
+```cpp
+testPattern = readImage("C:\\Users\\tvaneerd\\code\\SSD\\AutoCal\\Source\\BackEnd\\SomeTest\\Data\\LAB3.png");
+```
+vs
+```cpp
+testPattern = readImage(getDataPath() + "LAB3.png");
+```
+vs
+```cpp
+testPattern = readTestImage("LAB3.png");
+```
+
+
+---
+
+This is all just "top down" programming.  
+_However_ I often like to say:  
+
+_Code top-down on the way down,  
+and bottom-up on the way back up._
+
+So more about that, some other day.
 
 ---
 
