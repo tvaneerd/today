@@ -59,6 +59,8 @@ HOWEVER, `unsigned int` puts the edge cases right near the most common computer 
 
 (Note: if the language made implicit conversion to unsigned an error, or some other similar but impossible because it would break the world change, then unsigned might be fine)
 
+P.S. `unsigned` is great for bit flags, or for when you really want mod 2^n behaviour, like in an unique (until rollover) ID, or an index into circular queue maybe, etc.
+
 ---
 
 See also Bjarne Stroustrup, Herb Sutter, Andrei Alexandrescu, Sean Parent, Scott Meyers, Chandler Carruth, Michael Wong, and Stephan T. Lavavej: https://youtube.com/watch?v=Puio5dly9N8
