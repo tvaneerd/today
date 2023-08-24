@@ -4,9 +4,11 @@ _"Nicely put"_ - Bjarne Stroustrup
 
 -----
 
-`int` and `unsigned int` both _attempt_ to model the mathematical Integers, and both, due to the finite limits of computers, fall infinitely short of their goal, each modelling 0% of the full range of Integers.
+`int` and `unsigned int` both _attempt_ to model the mathematical numbers (Integers and Whole Numbers, respectively), and both, due to the finite limits of computers, fall infinitely short of their goal, each modelling 0% of the full range of the items they attempt model.
 
 But `unsigned int` somehow does it even worse than `int` does.
+
+Or more preceisly, `unsigned int` perfectly models 100% of a set of Integers modulo some power of 2, but everyone forgets that and thinks `unsigned int` models "numbers".
 
 ```cpp
 
