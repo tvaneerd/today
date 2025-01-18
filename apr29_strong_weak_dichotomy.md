@@ -7,5 +7,5 @@ This is why Stepanov had Regular including TotallyOrdered - types, if orderable 
 yet the same Stepanov had STL algorithms only requiring StrictWeakOrdering.
 
 
-Similarly, we should return something like char * if/when we can pass along those extra guarantees (ie null termination, maybe "conventions" or "implications" is better than guarantees, char * isn't the strongest of types)
-And yet our functions should take string_view whenever they can, because they should take the *weakest* guarantees that the reasonably can.
+Similarly, we should return something specific like string (or char * if/when safe) 
+But our functions should take string_view whenever they can, because they should take the *weakest* guarantees that the reasonably can.
