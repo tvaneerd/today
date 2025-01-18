@@ -91,7 +91,8 @@ QImage toSharedQImage(image_t const & image)
 
 QImage toQImage(image_t const & image)
 {
-    // make a copy so we no longer share the pixel buffer with image_t, as that better matches typical (ie Regular concept) expectations
+    // make a copy so we no longer share the pixel buffer with image_t,
+    // as that better matches typical expectations (ie matches the concept Regular)
     return toSharedQImage(image).copy();
 }
 
