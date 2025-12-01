@@ -1,6 +1,6 @@
 ### TLDR
 
-Mark local functions as `static` even if they are in an anonymous namespace.
+Mark file-local functions as `static` even if they are in an anonymous namespace.
 
 <table>
 <tr>
