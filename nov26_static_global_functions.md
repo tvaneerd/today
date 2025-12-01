@@ -14,25 +14,25 @@ Better
 <tr>
 <td  valign="top">
 
-<pre lang="cpp">
-
+```cpp
 namespace
 {
 struct Foo { int x = 17; }
 int func() { return 23; }
 }
-</pre>
+```
+
 </td>
 <td  valign="top">
 
-<pre lang="cpp">
-
+```cpp
 namespace
 {
 struct Foo { int x = 17; }
 static int func() { return 23; }  // static!
 }
-</pre>
+```
+
 </td>
 </tr>
 </table>
