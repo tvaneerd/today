@@ -1,6 +1,6 @@
 ### TLDR
 
-Mark file-local functions as `static` even if they are in an anonymous namespace.
+Mark file-local functions (and variables) as `static` even if they are in an anonymous namespace.
 
 <table>
 <tr>
@@ -108,7 +108,7 @@ You can still put `func()` in an anonymous namespace.  But you should also mark 
 
 And you still need anonymous namespaces for things like types. So they aren't going away.
 
-
+As for global variables, the same logic applies - I want to look at them and know they aren't extern'd (I know, not common) outside this file, without scrolling.
 
 #### P.S.
 
