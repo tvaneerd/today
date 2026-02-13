@@ -1,6 +1,6 @@
 ### TLDR
 
-Mark file-local functions (and variables) as `static` even if they are in an anonymous namespace.
+Mark file-local functions and variables as `static` even if they are in an anonymous namespace.
 
 <table>
 <tr>
@@ -19,6 +19,7 @@ namespace
 {
 struct Foo { int x = 17; }
 int func() { return 23; }
+int object;
 }
 ```
 
@@ -30,6 +31,7 @@ namespace
 {
 struct Foo { int x = 17; }
 static int func() { return 23; }  // static!
+static int object; // static!
 }
 ```
 
