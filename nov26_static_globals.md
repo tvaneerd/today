@@ -114,6 +114,6 @@ As for global variables, the same logic applies - I want to look at them and kno
 
 #### P.S.
 
-Once upon a time, a non-static `func()` inside an anonymous namespace _was still an exported/mangled symbol_. It was never _found_ by another cpp file, because it was mangled with a unique garble of stuff to represent the anonymous namespace.  But it was still there taking up space (and very very very slightly making linking slower).
+Once upon a time, a non-static `func()` (or variable) inside an anonymous namespace _was still an exported/mangled symbol_. It was never _found_ by another cpp file, because it was mangled with a unique garble of stuff to represent the anonymous namespace.  But it was still there taking up space (and very very very slightly making linking slower).
 
 Anyhow that no longer happens.
