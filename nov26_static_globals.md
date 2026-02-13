@@ -114,6 +114,19 @@ As for global variables, the same logic applies - I want to look at them and kno
 
 #### P.S.
 
+_Why not both?_
+
+You might be thinking, okay, I see how static is helpful, I'll use it _instead_ of an anonymous namespace.  I will put my local types in an anonymous namespace (that's really what they are for!), and then put my functions and variables outside the namespace, and mark them static.
+
+But then you have separated your types from your functions/variables, and sometimes you just don't want that.  In particular, a type that is only useful for that one function (maybe it is the custom return type for that function) - you want the type and the function to stay together.  Etc.
+
+So don't be afraid of having both - an anonymous namespace, with static functions/variables inside it.
+ie shut of `readability-static-definition-in-anonymous-namespace`, not just `misc-use-anonymous-namespace` in your clang-tidy.
+
+Also, contrary to https://clang.llvm.org/extra/clang-tidy/checks/misc/use-anonymous-namespace.html, the C++ Standard (nor the committee) no longer considers anonymous namespaces to be the "superior alternative" to static. Anonymous namespaces are the superiour solution for _defining local types_.
+
+#### P.S.
+
 Once upon a time, a non-static `func()` (or variable) inside an anonymous namespace _was still an exported/mangled symbol_. It was never _found_ by another cpp file, because it was mangled with a unique garble of stuff to represent the anonymous namespace.  But it was still there taking up space (and very very very slightly making linking slower).
 
 Anyhow that no longer happens.
