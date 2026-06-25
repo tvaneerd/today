@@ -36,7 +36,7 @@ Another example:
 
     typedef int FooHandle;
     
-Do you want FooHandles to be subtracted from each other?
+Do you want FooHandles to be _subtracted_ from each other?
 
 ### typedefs are Good
 
