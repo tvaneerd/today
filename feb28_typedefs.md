@@ -40,15 +40,17 @@ Do you want FooHandles to be subtracted from each other?
 
 ### typedefs are Good
 
-    using ChannelId = StrongId<std::string, struct ChannelTag>;
-
-- a ChannelId really is just a StrongId over a string, unique across Channels.  No more, no less.
-- (you still can't forward declare it, unfortunately)
-- they are necessary, a form of interface-by-name:
+- they are sometimes necessary, a form of interface-by-name:
 
     `enable_if<condition, int, double>::type // that's a typedef`  
     `std::vector<int>::iterator  // maybe a typedef`
 
+- they are sometimes "complete", ie never meant to grow into more:
+
+    `using ChannelId = StrongId<std::string, struct ChannelTag>;`
+
+    - a ChannelId really is just a StrongId over a string, unique across Channels.  No more, no less.
+    - (you still can't forward declare it, unfortunately)
 ---
 
 Bonus! Naming also came up:
