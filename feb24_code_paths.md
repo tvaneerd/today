@@ -175,3 +175,39 @@ In particular:
 - its like symbolism in art: know the tropes, the patterns, communicate better
 
 - show ALL the examples.  Where each form makes sense.  IT DEPENDS.
+
+Another example:
+
+```cpp
+
+bool sendMsg(Msg const & msg)
+{
+    if (send(&msg, sizeof(msg))
+        return true;
+
+    m_send_errors++;
+
+    LOG_WARNING(logger(), "send failed; total errors={}", m_send_errors);
+
+    return false;
+}
+```
+
+The point is that the above follows the _pattern_ or "trope" of early exit on _error_, but in this case it is early exit on success. It needs a comment:
+
+```cpp
+
+bool sendMsg(Msg const & msg)
+{
+    if (send(&msg, sizeof(msg))
+        return true;
+
+    // Sending failed. :-(
+
+    m_send_errors++;
+
+    LOG_WARNING(logger(), "send failed; total errors={}", m_send_errors);
+
+    return false;
+}
+```
