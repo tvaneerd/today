@@ -97,9 +97,34 @@ int g()
 }
 ```
 Is `func()` local to this file.
-Yes.  No question. `func()` is `static`.  Feel confident making your change. Have a good day.
+Yes.  No question. `func()` is `static`.  Feel confident making your change. _Have a good day._
 
 **The End.**
+
+_But wait, there's more_
+
+### Code Review
+
+In code review, all you see is:
+
+```cpp
+
+< int func() { return 23; }
+---
+> int func() { return 17; }
+
+```
+
+Knowing the "blast radius" of that change is important - does it only affect this file, or does it affect the whole codebase?
+
+Depending on your code review tool, good luck finding the `namespace {` that encloses that function. _What a waste of time._
+
+Seeing `static` at the front gives an immediate answer.
+
+(Note also that code review is the real bottleneck in many organizations. _\<ahem>AI\</ahem>_)
+
+
+### The End
 
 
 So... I shouldn't put `func()` in an anonymous namespace then?
