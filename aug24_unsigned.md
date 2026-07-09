@@ -8,7 +8,7 @@ _"Nicely put"_ - Bjarne Stroustrup
 
 But `unsigned int` somehow does it even worse than `int` does.
 
-Or more preceisly, `unsigned int` perfectly models 100% of a set of Integers modulo some power of 2, but everyone forgets that and thinks `unsigned int` models "numbers".
+Or more preceisly, `unsigned int` perfectly models 100% of the quotient ring $\mathbb{Z}$/2<sup>N</sup>$\mathbb{Z}$, but everyone forgets that and thinks `unsigned int` models "numbers".
 
 ```cpp
 
