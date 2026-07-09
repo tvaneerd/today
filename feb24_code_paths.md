@@ -193,7 +193,9 @@ bool sendMsg(Msg const & msg)
 }
 ```
 
-The point is that the above follows the _pattern_ or "trope" of early exit on _error_, but in this case it is early exit on success. It needs a comment:
+The point is that the above follows the _pattern_ or "trope" of early exit on _error_, but in this case it is early exit on success.  
+And it looks like the error case is the main body, and thus main task/point, of the function.  
+It at least needs a comment:
 
 ```cpp
 
@@ -211,3 +213,63 @@ bool sendMsg(Msg const & msg)
     return false;
 }
 ```
+
+What about like this:
+
+```cpp
+bool sendMsg(Msg const & msg)
+{
+    if (send(&msg, sizeof(msg)) [[unlikely]]
+    {
+        ++m_send_errors;
+
+        LOG_WARNING(logger(), "send failed; total errors={}", m_send_errors);
+
+        return false;
+    }
+
+    return true;
+}
+```
+
+Bzzzzt.  That doesn't solve it.  Same issues - looks like "if some condition, do the thing we are here to do". Does the `[[unlikely]]` help??
+
+There's another underlying problem, which has been part of the problem all along:  the if condition is an _action_ not a question.  
+The typical pattern/trope is that if-conditions are immutable/const/pure functions that are answers-to-questions - and that is a _good_ pattern, not just typical.
+
+Instead:
+
+```cpp
+bool sendMsg(Msg const & msg)
+{
+    const bool res = send(&msg, sizeof(msg));
+
+    if (!res) [[unlikely]]
+    {
+        ++m_send_errors;
+        LOG_WARNING(logger(), "send failed; total errors={}", m_send_errors);
+    }
+
+    return res;
+}
+```
+
+It is now _really_ clear what the "main" flow (and thus point!) of the function is: to call send.  
+And it is really clear that the error handling is the error handling.
+
+And there is a single return statement - now, wait a sec, I am not a fan of "must have single point of return"[^1] - but it is the "must" part that bothers me.
+
+Here, the single return lets you know that how or what it returns is NOT part of the control flow - the function returns exactly what send() returns, and control flow is only about handling errors.
+
+As a bonus[^2], I tossed a `const` on `res` to make it clear that even if (ie _when_, because it is inevitable) the function grows longer, the return is exactly what send() returned.
+
+
+Better stop now, we are precariously close to talking about monads...
+
+
+---
+
+
+[^1]: "Cool story bro": the source of my favourite Herb Sutter quote - "Tony's code is righteous" - is example code I wrote arguing _against_ "must have single point of return".
+
+[^2]: I am typically ambivalent about `const` on local "variables", but here it offers some reassurances
