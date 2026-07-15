@@ -155,3 +155,54 @@ Also, contrary to https://clang.llvm.org/extra/clang-tidy/checks/misc/use-anonym
 Once upon a time, a non-static `func()` (or variable) inside an anonymous namespace _was still an exported/mangled symbol_. It was never _found_ by another cpp file, because it was mangled with a unique garble of stuff to represent the anonymous namespace.  But it was still there taking up space (and very very very slightly making linking slower).
 
 Anyhow that no longer happens.
+
+#### P.S.
+
+Would you, could you, make the same argument about `public/private` in class definitions?  Should C++ adopt (or allow) the style of other languages where every member is marked public/protected/private?
+
+
+<table>
+<tr>
+<th>
+Current C++
+</th>
+<th>
+Should We?
+</th>
+</tr>
+<tr>
+<td  valign="top">
+
+```cpp
+class Foo
+{
+    int f();
+public:
+    int g();
+}
+```
+
+</td>
+<td  valign="top">
+
+```cpp
+class Foo
+{
+    private int f();
+    public int g();
+}
+```
+
+</td>
+</tr>
+</table>
+
+Should we?
+
+In a word, No.
+
+In two words, Not at all.
+
+(Sorry, off-by-one error)
+
+There _should not_ be the same issue in a class definition - if your function is FAR away from its `public:` or `private:` then your class is too big - that's the real problem, so go fix that.
