@@ -53,6 +53,18 @@ Do you want FooHandles to be _subtracted_ from each other?
     - (you still can't forward declare it, unfortunately)
 ---
 
+This is all really about abstraction, which could be its own "day" (week/month/year/lifetime). Two things to consider when making a class, an alias, a function, a name, almost anything:
+
+**the cost of abstraction**
+- reader must "memorize/understand" the abstraction until they are comfortable enough to "believe" it
+
+**the benefit of abstraction**
+- "The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise." ~ Edsger Dijkstra
+
+
+
+---
+
 Bonus! Naming also came up:
 
 
